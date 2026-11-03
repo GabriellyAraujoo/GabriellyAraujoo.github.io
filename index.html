@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gabrielly Araújo</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Portfólio de Gabrielly Cavalcante de Araújo, Desenvolvedora de Software Júnior em Brasília, DF. Python, SQL, TypeScript, React, Power BI e automação com Power Platform.">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,300..800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ---------------------------------------------------------------
+   PORTFÓLIO — "prancha técnica" (papel milimetrado + bloco de carimbo)
+   Tokens: papel, tinta, régua, selante (vermelhão), painel, grade.
+   Tipos: Archivo (display/texto), IBM Plex Mono (etiquetas/campos).
+   Layout: colunas de especificação (rótulo à esquerda, conteúdo à
+   direita), como um formulário técnico impresso.
+   --------------------------------------------------------------- */
+:root{
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --paper:#F1F3F6;
+  --ink:#101826;
+  --ink-soft:#3C4959;
+  --ink-mute:#68768A;
+  --rule:#C2CAD5;
+  --rule-soft:#DCE2EA;
+  --accent:#C2401A;
+  --accent-soft:#F1D3C8;
+  --panel:#FFFFFF;
+  --chip:#E6EBF1;
+  --grid:rgba(16,24,38,.055);
+  --shadow:0 1px 2px rgba(16,24,38,.06),0 8px 24px rgba(16,24,38,.05);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0A0F16;
+    --ink:#E9EEF5;
+    --ink-soft:#B4BFCD;
+    --ink-mute:#8493A5;
+    --rule:#28313E;
+    --rule-soft:#1A222C;
+    --accent:#FF6E42;
+    --accent-soft:#3B221A;
+    --panel:#0F161F;
+    --chip:#151E28;
+    --grid:rgba(150,180,220,.05);
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0A0F16;
+  --ink:#E9EEF5;
+  --ink-soft:#B4BFCD;
+  --ink-mute:#8493A5;
+  --rule:#28313E;
+  --rule-soft:#1A222C;
+  --accent:#FF6E42;
+  --accent-soft:#3B221A;
+  --panel:#0F161F;
+  --chip:#151E28;
+  --grid:rgba(150,180,220,.05);
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35);
+  color-scheme:dark;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background-color:var(--paper);
+  background-image:
+    linear-gradient(var(--grid) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:34px 34px;
+  background-position:-1px -1px;
+  color:var(--ink);
+  font-family:"Archivo",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  font-variant-numeric:tabular-nums;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));
+}
+body::before{
+  content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:50;
+  background:var(--paper);
+}
+
+.wrap{max-width:1120px;margin:0 auto;padding:0 clamp(4px,2vw,20px)}
+
+/* ---------- cabeçalho ---------- */
+.top{
+  position:sticky;top:env(safe-area-inset-top,0px);z-index:40;
+  background:color-mix(in srgb,var(--paper) 88%,transparent);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--rule-soft);
+}
+.top-in{
+  max-width:1120px;margin:0 auto;padding:12px clamp(4px,2vw,20px);
+  display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+}
+.mark{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.78rem;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--ink);
+  text-decoration:none;white-space:nowrap;
+}
+.mark span{color:var(--accent)}
+.top nav{margin-left:auto;display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+.top nav a{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.74rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-soft);text-decoration:none;padding:2px 0;
+  border-bottom:1px solid transparent;
+}
+.top nav a:hover{color:var(--ink);border-bottom-color:var(--accent)}
+.tbtn{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.72rem;letter-spacing:.08em;
+  background:var(--chip);color:var(--ink-soft);border:1px solid var(--rule-soft);
+  border-radius:4px;padding:5px 10px;cursor:pointer;
+}
+.tbtn:hover{color:var(--ink);border-color:var(--rule)}
+
+/* ---------- tipografia base ---------- */
+h1,h2,h3{text-wrap:balance;margin:0}
+p{margin:0}
+a{color:inherit}
+.lbl{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.7rem;font-weight:500;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--ink-mute);
+}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace}
+
+/* ---------- herói ---------- */
+.hero{padding:clamp(40px,7vw,86px) 0 clamp(32px,4vw,52px);border-bottom:1px solid var(--rule)}
+.eyebrow{
+  display:flex;align-items:center;gap:10px;margin-bottom:20px;
+}
+.dot{
+  width:8px;height:8px;border-radius:50%;background:var(--accent);flex:none;
+  box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 18%,transparent);
+}
+h1{
+  font-size:clamp(2.3rem,6.2vw,4.1rem);line-height:1.02;font-weight:700;
+  letter-spacing:-.028em;font-stretch:112%;
+  max-width:16ch;
+}
+h1 em{
+  font-style:normal;color:var(--accent);
+  font-family:"IBM Plex Mono",ui-monospace,monospace;font-weight:500;
+  font-size:.92em;
+}
+.lede{
+  margin-top:22px;max-width:62ch;font-size:clamp(1rem,1.6vw,1.12rem);
+  color:var(--ink-soft);line-height:1.65;
+}
+.lede strong{color:var(--ink);font-weight:600}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;
+  font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.76rem;letter-spacing:.09em;
+  text-transform:uppercase;text-decoration:none;
+  padding:11px 18px;border-radius:5px;border:1px solid var(--ink);
+  background:var(--ink);color:var(--paper);transition:transform .12s ease,opacity .12s ease;
+}
+.btn:hover{transform:translateY(-1px);opacity:.92}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--rule)}
+.btn.ghost:hover{border-color:var(--ink)}
+.btn .arw{color:var(--accent);font-family:"IBM Plex Mono",monospace}
+.btn.ghost .arw{color:var(--accent)}
+
+.meta-strip{
+  margin-top:34px;padding-top:20px;border-top:1px dashed var(--rule);
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px 26px;
+}
+.meta-strip div{min-width:0}
+.meta-strip .val{display:block;margin-top:5px;font-size:.94rem;color:var(--ink)}
+
+/* ---------- seções ---------- */
+section{padding:clamp(38px,5.5vw,66px) 0;border-bottom:1px solid var(--rule)}
+.sec-head{
+  display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
+  margin-bottom:8px;
+}
+.sec-head .num{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.74rem;font-weight:600;
+  color:var(--accent);letter-spacing:.1em;
+}
+h2{
+  font-size:clamp(1.35rem,2.6vw,1.85rem);font-weight:700;letter-spacing:-.02em;
+  font-stretch:105%;
+}
+.sec-note{
+  margin:0 0 30px;color:var(--ink-mute);font-size:.95rem;max-width:66ch;
+}
+
+/* linha de especificação */
+.spec{
+  display:grid;grid-template-columns:150px minmax(0,1fr);gap:6px 28px;
+  padding:22px 0;border-top:1px solid var(--rule-soft);
+}
+.spec:first-of-type{border-top:1px solid var(--rule)}
+.spec .k{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.7rem;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--ink-mute);padding-top:3px;
+}
+.spec .v{min-width:0}
+.spec .v p+p{margin-top:10px}
+.v-title{
+  font-size:1.16rem;font-weight:650;letter-spacing:-.012em;font-stretch:104%;
+  display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:8px;
+}
+.v-title .yr{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.72rem;font-weight:500;
+  color:var(--ink-mute);letter-spacing:.08em;
+}
+.v-sub{color:var(--ink-soft);margin-bottom:12px}
+.bul{margin:0;padding:0;list-style:none}
+.bul li{
+  position:relative;padding-left:18px;margin-top:7px;color:var(--ink-soft);font-size:.96rem;
+}
+.bul li::before{
+  content:"";position:absolute;left:2px;top:.62em;width:6px;height:1px;background:var(--accent);
+}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.chip{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.7rem;letter-spacing:.04em;
+  background:var(--chip);color:var(--ink-soft);border:1px solid var(--rule-soft);
+  border-radius:4px;padding:3px 8px;
+}
+.link-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.lnk{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.72rem;letter-spacing:.06em;
+  text-decoration:none;color:var(--ink);border:1px solid var(--rule);
+  border-radius:4px;padding:6px 11px;background:var(--panel);
+}
+.lnk:hover{border-color:var(--accent);color:var(--accent)}
+.lnk.pending{border-style:dashed;color:var(--ink-mute)}
+
+/* cartões menores */
+.grid3{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:16px;
+}
+.card{
+  background:var(--panel);border:1px solid var(--rule-soft);border-radius:7px;
+  padding:18px 18px 16px;box-shadow:var(--shadow);min-width:0;
+}
+.card h3{font-size:1rem;font-weight:650;letter-spacing:-.01em;margin-bottom:6px}
+.card p{font-size:.9rem;color:var(--ink-soft)}
+.card .chips{margin-top:12px}
+.card .tag{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.66rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--accent);display:block;margin-bottom:7px;
+}
+
+/* habilidades */
+.skillset{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:26px 34px;
+}
+.skillset h3{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.72rem;font-weight:600;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--accent);
+  padding-bottom:8px;border-bottom:1px solid var(--rule);margin-bottom:12px;
+}
+.skillset ul{margin:0;padding:0;list-style:none}
+.skillset li{
+  font-size:.93rem;color:var(--ink-soft);padding:5px 0;
+  display:flex;justify-content:space-between;gap:14px;align-items:baseline;
+}
+.skillset li .lvl{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.68rem;letter-spacing:.08em;
+  color:var(--ink-mute);white-space:nowrap;
+}
+
+/* contato */
+.contact{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;
+}
+.cbox{
+  border:1px solid var(--rule);border-radius:7px;padding:18px;background:var(--panel);
+  box-shadow:var(--shadow);min-width:0;
+}
+.cbox .lbl{display:block;margin-bottom:8px}
+.cbox .val{font-size:1.02rem;word-break:break-word;overflow-wrap:anywhere}
+.cbox a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--accent)}
+.cbox a:hover{color:var(--accent)}
+.copy{
+  margin-top:12px;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.68rem;
+  letter-spacing:.09em;text-transform:uppercase;background:none;border:0;padding:0;
+  color:var(--ink-mute);cursor:pointer;
+}
+.copy:hover{color:var(--accent)}
+.copy.done{color:var(--accent)}
+
+/* carimbo final */
+.stamp{
+  margin-top:8px;border:1px solid var(--rule);border-radius:7px;overflow:hidden;
+  background:var(--panel);
+}
+.stamp-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+}
+.stamp-cell{padding:14px 16px;border-right:1px solid var(--rule-soft);border-bottom:1px solid var(--rule-soft)}
+.stamp-cell:last-child{border-right:0}
+.stamp-cell .lbl{display:block;margin-bottom:5px}
+.stamp-cell .val{font-size:.92rem;font-weight:600}
+
+footer{padding:30px 0 46px;color:var(--ink-mute);font-size:.85rem}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+@media (max-width:760px){
+  .spec{grid-template-columns:1fr;gap:2px}
+  .spec .k{padding-top:14px}
+  .top nav{gap:14px}
+  .meta-strip{grid-template-columns:1fr 1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-in">
+    <a class="mark" href="#topo">Gabrielly<span>.</span>Araújo</a>
+    <nav>
+      <a href="#projetos">Projetos</a>
+      <a href="#experiencia">Experiência</a>
+      <a href="#habilidades">Habilidades</a>
+      <a href="#contato">Contato</a>
+      <button class="tbtn" id="tema" type="button" aria-label="Alternar tema claro e escuro">Tema</button>
+    </nav>
+  </div>
+</header>
+
+<main id="topo">
+  <div class="wrap">
+
+    <!-- ============ HERÓI ============ -->
+    <section class="hero">
+      <div class="eyebrow">
+        <span class="dot" aria-hidden="true"></span>
+        <span class="lbl">Disponível para vagas júnior · Brasília, DF</span>
+      </div>
+      <h1>Desenvolvedora de Software <em>júnior</em> com base em dados.</h1>
+      <p class="lede">
+        Sou <strong>Gabrielly Araújo</strong>, engenheira de software em formação no IESB (2023–2026).
+        Escrevo código em <strong>Python, SQL, TypeScript e C</strong> e trabalho com dados no
+        <strong>Pandas</strong>, painéis no <strong>Power BI</strong> e automação no
+        <strong>Power Platform</strong>. Tenho três estágios em ENGINEERING/DADOS e DOCUMENTAÇÃO
+        e entrego código testado, com documentação — do jeito que a área de engenharia pede.
+      </p>
+      <div class="cta">
+        <a class="btn" href="#projetos">Ver projetos <span class="arw">↓</span></a>
+        <a class="btn ghost" href="https://github.com/GabriellyAraujoo" target="_blank" rel="noopener noreferrer">GitHub <span class="arw">↗</span></a>
+        <a class="btn ghost" href="#contato">Falar comigo <span class="arw">↓</span></a>
+      </div>
+
+      <div class="meta-strip">
+        <div>
+          <span class="lbl">Localização</span>
+          <span class="val">Brasília, DF · Brasil</span>
+        </div>
+        <div>
+          <span class="lbl">Foco</span>
+          <span class="val">Backend, dados e automação</span>
+        </div>
+        <div>
+          <span class="lbl">Formação</span>
+          <span class="val">Engenharia de Software — IESB</span>
+        </div>
+        <div>
+          <span class="lbl">Idiomas</span>
+          <span class="val">Português (nativo) · Inglês (B1)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROJETOS ============ -->
+    <section id="projetos">
+      <div class="sec-head">
+        <span class="num">01</span>
+        <h2>Projetos</h2>
+      </div>
+      <p class="sec-note">
+        O que já construí e consigo explicar de ponta a ponta: contexto, o que eu fiz e o que aprendi.
+        Repositório é o código-fonte; os demais ainda estão em preparação para publicação.
+      </p>
+
+      <div class="spec">
+        <div class="k">Dados · Python</div>
+        <div class="v">
+          <div class="v-title">Analisador de Aposentabilidade <span class="mono" style="font-size:.7rem;color:var(--ink-mute);font-weight:500">estágio PGFN</span></div>
+          <p class="v-sub">Classificação de servidores públicos por elegibilidade a aposentadoria, a partir de uma planilha de servidores.</p>
+          <ul class="bul">
+            <li>Leitura da planilha de servidores com <strong>Pandas</strong> e conversão das datas serial do Excel para <code>datetime</code>.</li>
+            <li>Cálculo de idade e de tempo de serviço, com ajuste para a data corrente.</li>
+            <li>Regra de negócio por sexo codificada: mais de 60 anos e mais de 10 de serviço (F) ou mais de 65 anos e 15 de serviço (M).</li>
+            <li>Relatório final filtrando nome, sexo, idade e a situação de aposentadoria.</li>
+          </ul>
+          <div class="chips">
+            <span class="chip">Python</span><span class="chip">Pandas</span><span class="chip">NumPy</span>
+            <span class="chip">openpyxl</span><span class="chip">Excel</span><span class="chip">Regra de negócio</span>
+          </div>
+          <div class="link-row">
+            <span class="lnk pending">Repositório em preparação</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="spec">
+        <div class="k">Concorrência · Python</div>
+        <div class="v">
+          <div class="v-title">Jogo de Pesca Concorrente</div>
+          <p class="v-sub">Dois jogadores disputam um mapa de pesca compartilhado, com travamento por coordenada.</p>
+          <ul class="bul">
+            <li>Mapas de 3×3 gerados com <strong>NumPy</strong>, um peixe por célula.</li>
+            <li>Um <strong>semáforo por coordenada</strong> para proteger o acesso ao mapa, com <code>acquire</code>/<code>release</code> explícitos.</li>
+            <li>Duas <strong>threads</strong> se alternando por rodada, com estado global de pontuação e de espera para puxar o peixe.</li>
+            <li>Documentação em português explicando cada etapa e cada decisão de sincronização.</li>
+          </ul>
+          <div class="chips">
+            <span class="chip">Python</span><span class="chip">threading</span><span class="chip">Semaphore</span>
+            <span class="chip">NumPy</span><span class="chip">Sistemas Operacionais</span>
+          </div>
+          <div class="link-row">
+            <span class="lnk pending">Repositório em preparação</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="spec">
+        <div class="k">Estruturas de dados · C</div>
+        <div class="v">
+          <div class="v-title">Calculadora Pós-fixada (RPN)</div>
+          <p class="v-sub">Avaliador de expressões em notação polonesa reversa, com derivação de infixada para pós-fixada.</p>
+          <ul class="bul">
+            <li>Avaliação por <strong>pilha</strong> de operandos: empilha número, desempilha dois valores ao encontrar operador.</li>
+            <li>Operadores <code>+ − * / ^</code> além de <code>ln</code>, <code>log</code>, <code>sen</code>, <code>cos</code> e <code>tg</code>.</li>
+            <li>Documento com a conversão passo a passo de <code>3 + 4 * 2 / (1 − 5) ^ 2 ^ 3</code> para pós-fixada, com a pilha rastreada item a item.</li>
+            <li>Tratamento de erro para operador inválido e leitura da expressão por tokenização.</li>
+          </ul>
+          <div class="chips">
+            <span class="chip">C</span><span class="chip">Pilha</span><span class="chip">strtok</span>
+            <span class="chip">matemática</span>
+          </div>
+          <div class="link-row">
+            <span class="lnk pending">Repositório em preparação</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="spec">
+        <div class="k">Front-end · React</div>
+        <div class="v">
+          <div class="v-title">Gestão de Funcionários <span class="yr">desafio-sea</span></div>
+          <p class="v-sub">Aplicação web de cadastro e listagem de funcionários com layout por Ant Design e estado global no Redux.</p>
+          <ul class="bul">
+            <li>Fluxo completo de cadastro com <strong>validação de formulário</strong>, seleção de cargo e status ativo/inativo.</li>
+            <li>Listagem com filtro por status, ordenação visual por cartão e menu de ações por funcionário.</li>
+            <li>Navegação com <strong>React Router</strong> e retorno ao filtro ativo pela query string da URL.</li>
+            <li>Notificações de sucesso ao salvar e ao excluir, com a store do Redux montada via <code>combineReducers</code>.</li>
+          </ul>
+          <div class="chips">
+            <span class="chip">React</span><span class="chip">Redux</span><span class="chip">Ant Design</span>
+            <span class="chip">React Router</span><span class="chip">JavaScript</span>
+          </div>
+          <div class="link-row">
+            <a class="lnk" href="https://github.com/GabriellyAraujoo/desafio-sea" target="_blank" rel="noopener noreferrer">Repositório ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="spec">
+        <div class="k">TypeScript · Node</div>
+        <div class="v">
+          <div class="v-title">Sistema de Gestão de Produtos e Categorias <span class="yr">projeto em equipe</span></div>
+          <p class="v-sub">Sistema de inventário com duas variantes de persistência, em memória e em banco, com interface de linha de comando em TypeScript.</p>
+          <ul class="bul">
+            <li><strong>Minha parte:</strong> configuração do compilador com <code>tsconfig.json</code> em modo estrito, o <code>package.json</code> do projeto e o <code>index.ts</code> que monta o menu principal e liga as telas de categorias e de produtos.</li>
+            <li>Equipe de 5 pessoas, <span class="yr">com a lista no <code>Notas.md</code> do repositório e 6 commits meus no histórico</span>.</li>
+            <li>Duas implementações da mesma regra: <strong>inventário em memória</strong>, com repositório em array, e <strong>inventário com ORM</strong>, com TypeORM e SQLite.</li>
+            <li>Camada de serviço separada da interface, com <code>CategoriaService</code> e <code>ProdutoService</code> cuidando do CRUD e da geração de id e data de criação.</li>
+          </ul>
+          <div class="chips">
+            <span class="chip">TypeScript</span><span class="chip">Node.js</span><span class="chip">TypeORM</span>
+            <span class="chip">SQLite</span><span class="chip">tsconfig</span><span class="chip">Trabalho em equipe</span>
+          </div>
+          <div class="link-row">
+            <a class="lnk" href="https://github.com/jeffersonLucass/desevolvimentoWebUCB" target="_blank" rel="noopener noreferrer">Repositório ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="spec">
+        <div class="k">Open source · Python</div>
+        <div class="v">
+          <div class="v-title">Contribuições no Orion Agent</div>
+          <p class="v-sub">Patches no provider de modelos de um agente multi-agente open source, além da instalação local completa.</p>
+          <ul class="bul">
+            <li>Patch no provider Anthropic para ler o endpoint a partir de <code>anthropic_base_url</code> (settings ou variável de ambiente).</li>
+            <li>Correção de extração de texto: o provider quebrava em <code>content[0]["text"]</code> quando o gateway emitia blocos de extended thinking antes do texto.</li>
+            <li>Ampliação do catálogo de modelos Anthropic disponíveis na configuração.</li>
+            <li>Instalação self-hosted do projeto (Python 3.12 via <code>uv</code>, API REST e WebSocket, interface web) com credencial guardada no Keychain do macOS.</li>
+          </ul>
+          <div class="chips">
+            <span class="chip">Python</span><span class="chip">API Anthropic</span><span class="chip">uv</span>
+            <span class="chip">Git</span><span class="chip">FastAPI</span><span class="chip">Keychain</span>
+          </div>
+          <div class="link-row">
+            <a class="lnk" href="https://github.com/phoenixlink-cloud/orion-agent" target="_blank" rel="noopener noreferrer">Projeto upstream ↗</a>
+            <span class="lnk pending">Meus patches em preparação</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="spec">
+        <div class="k">Automação · n8n</div>
+        <div class="v">
+          <div class="v-title">Ambiente local de agentes de WhatsApp</div>
+          <p class="v-sub">Infraestrutura de automação com n8n, tunnel público e agentes conectados ao WhatsApp, sem custo de infraestrutura.</p>
+          <ul class="bul">
+            <li>Ambiente 100% local: <strong>n8n 2.45.6</strong> sobre Node 24 LTS instalado à parte, sem interferir no Node do sistema.</li>
+            <li>Tunnel público com <strong>cloudflared</strong> e script de sincronização das URLs de editor e webhook.</li>
+            <li>Uso dos nós nativos <strong>WhatsApp Trigger</strong> e <strong>WhatsApp</strong>, com liberação controlada de pacotes de nós da comunidade.</li>
+            <li>Variáveis de ambiente centralizadas para manter o comportamento estável entre atualizações do n8n.</li>
+          </ul>
+          <div class="chips">
+            <span class="chip">n8n</span><span class="chip">Node.js</span><span class="chip">cloudflared</span>
+            <span class="chip">WhatsApp API</span><span class="chip">Shell</span>
+          </div>
+          <div class="link-row">
+            <span class="lnk pending">Repositório em preparação</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="spec">
+        <div class="k">Bancos de dados · SQL</div>
+        <div class="v">
+          <div class="v-title">Modelagem e consultas em MySQL</div>
+          <p class="v-sub">Esquemas relacionais montados do zero para três domínios, com chaves estrangeiras e operação completa em SQL.</p>
+          <ul class="bul">
+            <li>Modelagem de clínica, pizzaria e campeonato de futebol com <strong>chaves primárias, estrangeiras e auto-incremento</strong>.</li>
+            <li>Operações de <code>INSERT</code>, <code>UPDATE</code> e <code>DELETE</code> com filtro por chave primária e em lote.</li>
+            <li>Exercícios de tradução de comandos e de integridade referencial, com as justificativas de por que não se apaga uma chave estrangeira em uso.</li>
+          </ul>
+          <div class="chips">
+            <span class="chip">SQL</span><span class="chip">MySQL</span><span class="chip">Modelagem</span>
+            <span class="chip">Integridade referencial</span>
+          </div>
+          <div class="link-row">
+            <span class="lnk pending">Repositório em preparação</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="spec">
+        <div class="k">Requisitos · Produto</div>
+        <div class="v">
+          <div class="v-title">Projeto Vacinas <span class="yr">levantamento completo</span></div>
+          <p class="v-sub">Do levantamento de requisitos à entrega do protótipo assinado pelo cliente, com estimation por pontos de função.</p>
+          <ul class="bul">
+            <li>Documento de escopo, <strong>descrição das telas</strong> e protótipo de interface.</li>
+            <li>Estimativa por <strong>pontos de função</strong> e tabela de rastreabilidade entre requisitos e casos de uso.</li>
+            <li>Organização do backlog em Trello e modelo de negócio do serviço.</li>
+            <li>Contrato de escopo assinado pelo cliente, evidência do ciclo completo de requisitos.</li>
+          </ul>
+          <div class="chips">
+            <span class="chip">Requisitos</span><span class="chip">Pontos de função</span>
+            <span class="chip">Figma</span><span class="chip">Trello</span><span class="chip">Documentação técnica</span>
+          </div>
+          <div class="link-row">
+            <a class="lnk" href="https://github.com/GabriellyAraujoo/Vacinas" target="_blank" rel="noopener noreferrer">Repositório ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid3" style="margin-top:30px">
+        <div class="card">
+          <span class="tag">Algoritmos · C</span>
+          <h3>Cidades</h3>
+          <p>Rodovia com cidades posicionadas: leitura do arquivo, alocação dinâmica de memória e cálculo da menor vizinhança entre cidades consecutivas.</p>
+          <div class="chips"><span class="chip">C</span><span class="chip">malloc/free</span><span class="chip">fscanf</span></div>
+          <div class="link-row"><a class="lnk" href="https://github.com/GabriellyAraujoo/Cidades" target="_blank" rel="noopener noreferrer">Repositório ↗</a></div>
+        </div>
+        <div class="card">
+          <span class="tag">Java · OOP</span>
+          <h3>Restaurante</h3>
+          <p>Modelagem de domínio de um restaurante em Java: Cliente, Pedido, ItemMenu e Turma, com encapsulamento, construtores e regra de capacidade do pedido.</p>
+          <div class="chips"><span class="chip">Java</span><span class="chip">POO</span><span class="chip">Encapsulamento</span></div>
+          <div class="link-row"><span class="lnk pending">Repositório em preparação</span></div>
+        </div>
+        <div class="card">
+          <span class="tag">Front-end · Bootstrap</span>
+          <h3>Site de Saúde</h3>
+          <p>Site institucional de saúde e nutrition com páginas de login, alimentação, suplementos e qualidade de vida, construído com Bootstrap e CSS próprio.</p>
+          <div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">Bootstrap</span></div>
+          <div class="link-row"><a class="lnk" href="https://github.com/GabriellyAraujoo/site-saude" target="_blank" rel="noopener noreferrer">Repositório ↗</a></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIÊNCIA ============ -->
+    <section id="experiencia">
+      <div class="sec-head">
+        <span class="num">02</span>
+        <h2>Experiência</h2>
+      </div>
+      <p class="sec-note">Três estágios em três frentes da engenharia: plataforma, dados e requisitos. Em todos, entrega foi documentação, validação e uso em produção.</p>
+
+      <div class="spec">
+        <div class="k">Atual</div>
+        <div class="v">
+          <div class="v-title">Estagiária em Engenharia de Software <span class="yr">VR Consult · Fev/2025 – atual</span></div>
+          <ul class="bul">
+            <li>Desenvolvimento e personalização de soluções em <strong>SharePoint</strong>: sites, bibliotecas e fluxos de trabalho.</li>
+            <li>Automação de processos internos com <strong>Power Automate</strong> e <strong>Power Apps</strong>.</li>
+            <li>Levantamento e entendimento de requisitos para desenvolvimento de soluções.</li>
+            <li>Testes funcionais e validação das soluções entregues, com documentação técnica organizada.</li>
+            <li>Melhorias de processos e soluções orientadas à necessidade real do usuário.</li>
+          </ul>
+          <div class="chips"><span class="chip">SharePoint</span><span class="chip">Power Automate</span><span class="chip">Power Apps</span><span class="chip">Testes funcionais</span><span class="chip">Scrum</span></div>
+        </div>
+      </div>
+
+      <div class="spec">
+        <div class="k">2024 – 2025</div>
+        <div class="v">
+          <div class="v-title">Estagiária em TI · Análise de Requisitos <span class="yr">Secretaria-Geral da Presidência · Jul/2024 – Fev/2025</span></div>
+          <ul class="bul">
+            <li>Elaboração de documentação técnica e de requisitos de sistemas.</li>
+            <li>Análise e organização de demandas de sistemas e mapeamento de processos.</li>
+            <li>Relatórios e análises internas, com apoio à avaliação e validação de soluções.</li>
+          </ul>
+          <div class="chips"><span class="chip">Requisitos</span><span class="chip">Documentação técnica</span><span class="chip">Mapeamento de processos</span></div>
+        </div>
+      </div>
+
+      <div class="spec">
+        <div class="k">2023</div>
+        <div class="v">
+          <div class="v-title">Estagiária em Engenharia de Dados <span class="yr">VitteSoft · Abr/2023 – Set/2023</span></div>
+          <ul class="bul">
+            <li>Scripts em <strong>Python com Pandas e NumPy</strong> para manipulação e tratamento de dados.</li>
+            <li>Apoio à criação de indicadores e análises, e manutenção de soluções de dashboards.</li>
+            <li>Contato direto com <strong>Power BI, QlikView e MicroStrategy</strong>.</li>
+          </ul>
+          <div class="chips"><span class="chip">Python</span><span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">Power BI</span><span class="chip">QlikView</span><span class="chip">MicroStrategy</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HABILIDADES ============ -->
+    <section id="habilidades">
+      <div class="sec-head">
+        <span class="num">03</span>
+        <h2>Habilidades</h2>
+      </div>
+      <p class="sec-note">Onde já tenho prática diária, e onde ainda estou consolidando. Separei as duas coisas de propósito.</p>
+
+      <div class="skillset">
+        <div>
+          <h3>Linguagens</h3>
+          <ul>
+            <li><span>Python</span><span class="lvl">prática</span></li>
+            <li><span>SQL · MySQL</span><span class="lvl">prática</span></li>
+            <li><span>TypeScript · JavaScript</span><span class="lvl">prática</span></li>
+            <li><span>React</span><span class="lvl">projeto</span></li>
+            <li><span>C</span><span class="lvl">projeto</span></li>
+            <li><span>Java</span><span class="lvl">projeto</span></li>
+            <li><span>HTML · CSS</span><span class="lvl">prática</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Dados e BI</h3>
+          <ul>
+            <li><span>Pandas · NumPy</span><span class="lvl">prática</span></li>
+            <li><span>Power Query</span><span class="lvl">prática</span></li>
+            <li><span>Power BI · dashboards</span><span class="lvl">prática</span></li>
+            <li><span>Modelagem de dados</span><span class="lvl">prática</span></li>
+            <li><span>DAX</span><span class="lvl">noções</span></li>
+            <li><span>QlikView · MicroStrategy</span><span class="lvl">contato</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Automação e Microsoft</h3>
+          <ul>
+            <li><span>Power Automate</span><span class="lvl">prática</span></li>
+            <li><span>Power Apps</span><span class="lvl">prática</span></li>
+            <li><span>SharePoint</span><span class="lvl">prática</span></li>
+            <li><span>n8n</span><span class="lvl">projeto</span></li>
+            <li><span>Node.js</span><span class="lvl">projeto</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Engenharia e processo</h3>
+          <ul>
+            <li><span>Levantamento de requisitos</span><span class="lvl">prática</span></li>
+            <li><span>Testes funcionais</span><span class="lvl">prática</span></li>
+            <li><span>Documentação técnica</span><span class="lvl">prática</span></li>
+            <li><span>Git · GitHub</span><span class="lvl">prática</span></li>
+            <li><span>Scrum · ágil</span><span class="lvl">prática</span></li>
+            <li><span>Figma · UI/UX</span><span class="lvl">noções</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTATO ============ -->
+    <section id="contato">
+      <div class="sec-head">
+        <span class="num">04</span>
+        <h2>Contato</h2>
+      </div>
+      <p class="sec-note">Respondo rápido e prefiro conversar por e-mail. Se a vaga for júnior em engenharia, dados ou automação, escreva.</p>
+
+      <div class="contact">
+        <div class="cbox">
+          <span class="lbl">E-mail</span>
+          <span class="val"><a href="mailto:gabycavalcantearaujo@gmail.com">gabycavalcantearaujo@gmail.com</a></span>
+          <button class="copy" type="button" data-copy="gabycavalcantearaujo@gmail.com">Copiar e-mail</button>
+        </div>
+        <div class="cbox">
+          <span class="lbl">Telefone / WhatsApp</span>
+          <span class="val">+55 (61) 99364-6568</span>
+          <button class="copy" type="button" data-copy="+55 (61) 99364-6568">Copiar número</button>
+        </div>
+        <div class="cbox">
+          <span class="lbl">GitHub</span>
+          <span class="val"><a href="https://github.com/GabriellyAraujoo" target="_blank" rel="noopener noreferrer">github.com/GabriellyAraujoo</a></span>
+          <button class="copy" type="button" data-copy="https://github.com/GabriellyAraujoo">Copiar link</button>
+        </div>
+        <div class="cbox"<div class="cbox">
+          <span class="lbl">LinkedIn</span>
+          <span class="val"><a href="https://www.linkedin.com/in/SEU-LINKIN" target="_blank" rel="noopener noreferrer">linkedin.com/in/SEU-LINKIN</a></span>
+        </div>
+        <div class="cbox">
+          <span class="lbl">Onde estou</span>
+          <span class="val">Brasília, DF · Brasil</span>
+          <span class="lbl" style="margin-top:14px">Disponibilidade</span>
+          <span class="val">Vagas júnior · Presencial ou híbrido</span>
+        </div>
+      </div>
+
+      <div class="stamp" style="margin-top:28px">
+        <div class="stamp-grid">
+          <div class="stamp-cell"><span class="lbl">Autor</span><span class="val">Gabrielly Cavalcante de Araújo</span></div>
+          <div class="stamp-cell"><span class="lbl">Área</span><span class="val">Engenharia de Software</span></div>
+          <div class="stamp-cell"><span class="lbl">Revisão</span><span class="val">Novembro de 2026</span></div>
+          <div class="stamp-cell"><span class="lbl">Contato</span><span class="val">gabycavalcantearaujo@gmail.com</span></div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap">
+        <span>Gabrielly Cavalcante de Araújo · Desenvolvedora de Software Júnior · Brasília, DF</span>
+        <span class="mono">Feito à mão, sem template.</span>
+      </div>
+    </footer>
+  </div>
+</main>
+
+<script>
+(function(){
+  // tema
+  var botao=document.getElementById('tema');
+  try{
+    var salvo=localStorage.getItem('tema-portfolio');
+    if(salvo==='dark'||salvo==='light'){document.documentElement.setAttribute('data-theme',salvo);}
+  }catch(e){}
+  if(botao){
+    botao.addEventListener('click',function(){
+      var escuro=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var atual=document.documentElement.getAttribute('data-theme')||(escuro?'dark':'light');
+      var novo=atual==='dark'?'light':'dark';
+      document.documentElement.setAttribute('data-theme',novo);
+      try{localStorage.setItem('tema-portfolio',novo);}catch(e){}
+    });
+  }
+  // copiar
+  document.querySelectorAll('[data-copy]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var texto=b.getAttribute('data-copy');
+      var feito=function(){
+        b.textContent='Copiado';
+        b.classList.add('done');
+        setTimeout(function(){b.textContent=b.getAttribute('data-label')||'Copiar';b.classList.remove('done');},1800);
+      };
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(texto).then(feito,function(){fallback(texto,feito);});
+      }else{fallback(texto,feito);}
+    });
+  });
+  function fallback(texto,feito){
+    var ta=document.createElement('textarea');
+    ta.value=texto;ta.setAttribute('readonly','');ta.style.position='fixed';ta.style.left='-9999px';
+    document.body.appendChild(ta);ta.select();
+    try{document.execCommand('copy');feito();}catch(e){}
+    document.body.removeChild(ta);
+  }
+})();
+</script>
+</body>
+</html>
