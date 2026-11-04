@@ -384,8 +384,51 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       </div>
       <p class="sec-note">
         O que já construí e consigo explicar de ponta a ponta: contexto, o que eu fiz e o que aprendi.
-        Repositório é o código-fonte; os demais ainda estão em preparação para publicação.
+        Todos os repositórios abaixo estão publicados, com o código-fonte e os testes.
       </p>
+
+      <div class="spec">
+        <div class="k">Backend · Python</div>
+        <div class="v">
+          <div class="v-title">API de Aposentabilidade</div>
+          <p class="v-sub">API REST em Flask que aplica a regra de elegibilidade a aposentadoria, com teste automatizado e CI/CD.</p>
+          <ul class="bul">
+            <li><strong>Quatro camadas</strong> separadas: a regra de negócio é função pura, sem Flask nem Pandas, e por isso testável sozinha.</li>
+            <li>Endpoints com validação de entrada: <code>GET /api/servidores</code> com filtros e paginação, <code>GET /api/servidores/&lt;id&gt;</code>, <code>GET /api/resumo</code> e <code>POST /api/avaliar</code>.</li>
+            <li>Quando a pessoa não é elegível, a resposta traz <strong>os motivos</strong>, um por critério que falhou, em vez de um "não" seco.</li>
+            <li><strong>44 testes</strong> com pytest, <strong>99% de cobertura</strong>, com atenção aos limites da regra: exatamente 60 anos não passa.</li>
+            <li><strong>CI</strong> roda a suíte em quatro versões do Python e o flake8; <strong>CD</strong> publica a imagem Docker no Container Registry a partir de uma tag.</li>
+          </ul>
+          <div class="chips">
+            <span class="chip">Python</span><span class="chip">Flask</span><span class="chip">pytest</span>
+            <span class="chip">GitHub Actions</span><span class="chip">Docker</span><span class="chip">REST API</span>
+          </div>
+          <div class="link-row">
+            <a class="lnk" href="https://github.com/GabriellyAraujoo/api-aposentabilidade" target="_blank" rel="noopener noreferrer">Repositório ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="spec">
+        <div class="k">Algoritmos · Python</div>
+        <div class="v">
+          <div class="v-title">Estruturas de Dados</div>
+          <p class="v-sub">Estruturas de dados e algoritmos implementados do zero, cada um com a complexidade documentada.</p>
+          <ul class="bul">
+            <li>Lista duplamente encadeada com ponteiros para os dois lados, pilha, fila e tabela hash com encadeamento e redimensionamento.</li>
+            <li>Árvore binária de busca com inserção, remoção nos três casos e verificação de balanceamento; grafo com busca em largura, em profundidade e ordem topológica.</li>
+            <li>Seis algoritmos de ordenação e quatro de busca, cada um com a complexidade no docstring.</li>
+            <li><strong>226 testes</strong> com pytest, incluindo a verificação de que a ordenação não altera a lista de entrada.</li>
+          </ul>
+          <div class="chips">
+            <span class="chip">Python</span><span class="chip">pytest</span><span class="chip">GitHub Actions</span>
+            <span class="chip">Complexidade</span><span class="chip">Estruturas de dados</span>
+          </div>
+          <div class="link-row">
+            <a class="lnk" href="https://github.com/GabriellyAraujoo/estrutura-dados-dsa" target="_blank" rel="noopener noreferrer">Repositório ↗</a>
+          </div>
+        </div>
+      </div>
 
       <div class="spec">
         <div class="k">Dados · Python</div>
@@ -403,8 +446,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
             <span class="chip">openpyxl</span><span class="chip">Excel</span><span class="chip">Regra de negócio</span>
           </div>
           <div class="link-row">
-            <span class="lnk pending">Repositório em preparação</span>
-          </div>
+            <span <a class="lnk" href="https://github.com/GabriellyAraujoo/analisador-aposentabilidade" target="_blank" rel="noopener noreferrer">Repositório ↗</a>     </div>
         </div>
       </div>
 
@@ -424,8 +466,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
             <span class="chip">NumPy</span><span class="chip">Sistemas Operacionais</span>
           </div>
           <div class="link-row">
-            <span class="lnk pending">Repositório em preparação</span>
-          </div>
+            <span <a class="lnk" href="https://github.com/GabriellyAraujoo/jogo-pesca-concorrente" target="_blank" rel="noopener noreferrer">Repositório ↗</a>     </div>
         </div>
       </div>
 
@@ -445,8 +486,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
             <span class="chip">matemática</span>
           </div>
           <div class="link-row">
-            <span class="lnk pending">Repositório em preparação</span>
-          </div>
+            <span <a class="lnk" href="https://github.com/GabriellyAraujoo/calculadora-posfixada" target="_blank" rel="noopener noreferrer">Repositório ↗</a>     </div>
         </div>
       </div>
 
@@ -500,8 +540,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
           <ul class="bul">
             <li>Patch no provider Anthropic para ler o endpoint a partir de <code>anthropic_base_url</code> (settings ou variável de ambiente).</li>
             <li>Correção de extração de texto: o provider quebrava em <code>content[0]["text"]</code> quando o gateway emitia blocos de extended thinking antes do texto.</li>
+            <li>Correção no sandbox: ele chamava <code>python</code> do <code>PATH</code>, o que queima em ambiente com virtualenv. Passou a usar o interpretador do próprio processo.</li>
             <li>Ampliação do catálogo de modelos Anthropic disponíveis na configuração.</li>
             <li>Instalação self-hosted do projeto (Python 3.12 via <code>uv</code>, API REST e WebSocket, interface web) com credencial guardada no Keychain do macOS.</li>
+            <li>Suíte do upstream rodada com os patches aplicados: <strong>2289 testes passando</strong>. Sem eles, 3 testes falham.</li>
           </ul>
           <div class="chips">
             <span class="chip">Python</span><span class="chip">API Anthropic</span><span class="chip">uv</span>
@@ -509,7 +551,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
           </div>
           <div class="link-row">
             <a class="lnk" href="https://github.com/phoenixlink-cloud/orion-agent" target="_blank" rel="noopener noreferrer">Projeto upstream ↗</a>
-            <span class="lnk pending">Meus patches em preparação</span>
+            <a class="lnk" href="https://github.com/GabriellyAraujoo/patches-orion-agent" target="_blank" rel="noopener noreferrer">Meus patches ↗</a>
           </div>
         </div>
       </div>
@@ -530,8 +572,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
             <span class="chip">WhatsApp API</span><span class="chip">Shell</span>
           </div>
           <div class="link-row">
-            <span class="lnk pending">Repositório em preparação</span>
-          </div>
+            <span <a class="lnk" href="https://github.com/GabriellyAraujoo/n8n-whatsapp-lab" target="_blank" rel="noopener noreferrer">Repositório ↗</a>     </div>
         </div>
       </div>
 
@@ -550,8 +591,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
             <span class="chip">Integridade referencial</span>
           </div>
           <div class="link-row">
-            <span class="lnk pending">Repositório em preparação</span>
-          </div>
+            <span <a class="lnk" href="https://github.com/GabriellyAraujoo/modelagem-sql" target="_blank" rel="noopener noreferrer">Repositório ↗</a>     </div>
         </div>
       </div>
 
@@ -589,7 +629,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
           <h3>Restaurante</h3>
           <p>Modelagem de domínio de um restaurante em Java: Cliente, Pedido, ItemMenu e Turma, com encapsulamento, construtores e regra de capacidade do pedido.</p>
           <div class="chips"><span class="chip">Java</span><span class="chip">POO</span><span class="chip">Encapsulamento</span></div>
-          <div class="link-row"><span class="lnk pending">Repositório em preparação</span></div>
+          <div class="link-row"><a class="lnk" href="https://github.com/GabriellyAraujoo/restaurante-poo" target="_blank" rel="noopener noreferrer">Repositório ↗</a></div>
         </div>
         <div class="card">
           <span class="tag">Front-end · Bootstrap</span>
